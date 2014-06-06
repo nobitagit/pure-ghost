@@ -1,0 +1,40 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+            <!-- A wrapper for all the blog posts -->
+            <section class="posts">
+            {{#foreach posts}}
+                <article class="post-box">
+                    <a href="{{{url}}}" rel="bookmark" class="post-link cf">
+                        <p class="post-date-pure">
+                            {{date format='MMM YYYY'}}                    
+                        </p>
+                        <!-- A single blog post -->
+                        <div class="post-header cf">
+                            <h2 class="post-title">{{title}}</h2>
+                            <div href="" class="post-arrow">
+                                <span class="fontawesome-arrow-right arrow-read"></span>
+                            </div>
+                        </div>
+                        <p class="post-meta">
+                            {{#foreach tags}}
+                            <span class="post-category post-category-{{name}}" href="#">{{name}}</span> 
+                            {{/foreach}}
+                        </p>
+                    </a>
+                </article>
+            {{/foreach}}
+            </section>
+
+
+            <footer class="footer">
+            {{pagination}}
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="http://purecss.io/">About</a></li>
+                        <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                        <li><a href="http://github.com/yui/pure/">Github</a></li>
+                    </ul>
+                </div>
+            </footer>
