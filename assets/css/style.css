@@ -576,15 +576,17 @@ h1, h2, h3, h4 {
   .single-article .post-title {
     font-size: 2.6em;
     margin: 0.5em 0 1em 0; }
-  .single-article p {
+  .single-article .post-content p, .single-article .post-content li {
     font-family: Arial;
-    line-height: 1.6em;
+    line-height: 1.6rem;
     color: #3c565d;
     font-size: 1.2em; }
     @media only screen and (min-width: 766px) {
-      .single-article p {
+      .single-article .post-content p, .single-article .post-content li {
         font-family: 'Merriweather Sans', Arial;
-        line-height: 1.8em; } }
+        line-height: 1.8rem; } }
+  .single-article .post-content li {
+    margin-bottom: 1rem; }
   .single-article .arrow-up {
     text-align: right; }
   .single-article .tags-list {
@@ -594,6 +596,24 @@ h1, h2, h3, h4 {
       list-style: none;
       margin: 0 0rem 0 0.2rem;
       display: inline-block; }
+
+pre {
+  background: #e3e3cc;
+  padding: 1.5em;
+  border-radius: 14px; }
+
+code {
+  padding: 1em;
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */ }
 
 .cubewrap {
   width: 60px;

@@ -426,14 +426,19 @@ h1, h2, h3, h4{
         font-size: 2.6em;
         margin: 0.5em 0 1em 0;
     }
-    p{
-        font-family: Arial;
-        line-height: 1.6em;
-        color: rgb(60, 86, 93);
-        font-size: 1.2em;
-        @include mq($bpmin){
-            font-family: 'Merriweather Sans', Arial;
-            line-height: 1.8em;
+    .post-content{
+        p, li{
+            font-family: Arial;
+            line-height: 1.6rem;
+            color: rgb(60, 86, 93);
+            font-size: 1.2em;
+            @include mq($bpmin){
+                font-family: 'Merriweather Sans', Arial;
+                line-height: 1.8rem;
+            }
+        }
+        li{
+            margin-bottom: 1rem;
         }
     }
     .arrow-up{ text-align: right; }
@@ -447,6 +452,22 @@ h1, h2, h3, h4{
             display: inline-block;
         }
     }
+}
+
+// code blocks
+
+pre{
+    background: darken($bkg, 2%);
+    padding: 1.5em;
+    border-radius: 14px;
+}
+code{
+    padding: 1em;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 // CUBE CODE 
