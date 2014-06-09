@@ -2,3 +2,5 @@
 ==========
 
 A blogging theme for Ghost.
+
+==========
