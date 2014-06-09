@@ -1,4 +1,4 @@
-# Pure Ghost
+# Pure
 ==========
 
-A theme for Ghost.
+A blogging theme for Ghost.
