@@ -7,7 +7,7 @@
             {{#foreach posts}}
                 <article class="post-box">
                     <a href="{{{url}}}" rel="bookmark" class="post-link cf">
-                        <p class="post-date-pure">
+                        <p class="post-date">
                             {{date format='MMM YYYY'}}                    
                         </p>
                         <!-- A single blog post -->
@@ -19,7 +19,7 @@
                         </div>
                         <p class="post-meta">
                             {{#foreach tags}}
-                            <span class="post-category post-category-{{name}}" href="#">{{name}}</span> 
+                            <span class="post-category post-category-{{name}}">{{name}}</span> 
                             {{/foreach}}
                         </p>
                     </a>
@@ -30,11 +30,4 @@
 
             <footer class="footer">
             {{pagination}}
-                <div class="pure-menu pure-menu-horizontal pure-menu-open">
-                    <ul>
-                        <li><a href="http://purecss.io/">About</a></li>
-                        <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
-                        <li><a href="http://github.com/yui/pure/">Github</a></li>
-                    </ul>
-                </div>
             </footer>

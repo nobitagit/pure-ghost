@@ -22,7 +22,6 @@ $bp : 767px;
 $bpmin: 766px;
 $bandHeight: 5px;
 
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -105,7 +104,7 @@ body{
 #main.shifted #single-article{
     @include transform(translateX(100%) );
 }
-h1{
+h1, h2, h3, h4{
  font-family: Montserrat;
  margin: 0; 
  color: $main;
@@ -135,6 +134,7 @@ h1{
     font-family: 'Merriweather Sans', sans-serif;
 }
 .topics{
+    @extend .no-flick;
     padding-left: 0;
     li{
         margin-bottom: 0.3em;
@@ -163,28 +163,6 @@ h1{
     color: rgb(142, 142, 214);
     text-decoration: none;
 }
-.single-article{
-    padding: 0 0.5em;
-    @include mq($bpmin){
-        padding: 1.4em 3em 0;
-        width: 95%;
-        max-width: 650px;
-    }
-    p{
-        font-family: Arial;
-        line-height: 1.6em;
-        color: rgb(60, 86, 93);
-        font-size: 1.2em;
-        @include mq($bpmin){
-            font-family: 'Merriweather Sans', Arial;
-            line-height: 1.8em;
-        }
-    }
-    .single-arrow{
-        position: relative;
-        @extend .arrow-base;
-    }
-}
 .content-subhead {
     text-transform: uppercase;
     color: #aaa;
@@ -211,10 +189,7 @@ h1{
     margin: 0.2em 0;
     font-family: 'Montserrat', sans-serif;
 }
-// If on single page
-h1.post-title{
-    font-size: 2.6em;
-}
+
 /*.post-avatar {
     border-radius: 50px;
     float: right;
@@ -225,17 +200,11 @@ h1.post-title{
     color: #444;
     line-height: 1.8em;
 }
-.post-meta {
-    color: #999;
-    font-size: 90%;
-    margin: 0;
-	padding: 0 0 1.94em;
-}
 
-.post-category {
+.post-category, .older-posts, .newer-posts {
     margin: 0 0.1em 0.3em;
     padding: 0.4em 1em;
-    font-size: 60%;
+    font-size: 0.55rem;
     font-weight: bold;
 
     background: $color-other;
@@ -269,7 +238,10 @@ h1.post-title{
     .post-category-html{
         background: $color-html;
     }
-
+    .older-posts, .newer-posts{
+        background: none;
+        color: #065770;
+    }
 .post-images {
     margin: 1em 0;
 }
@@ -279,18 +251,44 @@ h1.post-title{
     color: #fff;
     text-shadow: 0 1px 1px #333;
 }
-
-.footer {
-    text-align: center;
-    padding: 1em 0;
+.pagination{
+    @extend .cf;
+    @include mq($bpmin){
+        padding: 1.4em 3em 0;
+    }
+    a{
+        display: block;
+    }
 }
-.footer a {
-    color: #ccc;
-    font-size: 80%;
+.pagination-txt{
+    display: none;
+    @include mq($bpmin){
+        font-family: Montserrat;      
+        display: inline-block;
+    }
 }
-.footer .pure-menu a:hover,
-.footer .pure-menu a:focus {
-    background: none;
+.arrow-wrap{
+    -webkit-transition: background  .2s, -webkit-transform .7s;
+    -moz-transition: background  .2s, -moz-transform .7s;
+    -o-transition: background  .2s, -o-transform .7s;
+    transition: background  .2s, transform .7s;
+    &:hover{
+        .pagination-txt, .single-arrow{
+            color: darken($bkg, 14%);
+        }
+    }
+}
+.pagination{
+    .arrow-wrap:nth-child(1):hover{
+        @include transform( translateX(10px) );
+    }
+    .arrow-wrap:nth-child(2):hover{
+        @include transform( translateX(-10px) );
+    }
+}
+.footer{
+    @extend .cf;
+    margin: 2em 0;
 }
 
 @media (max-width: $bp) {
@@ -338,19 +336,18 @@ h1.post-title{
     content: "";
 }
 
-.post-date-pure{
+.post-date{
     margin: 0;
-text-transform: uppercase;
-font-size: 0.7em;
-font-family: arial;
-color: rgb(126, 129, 100);
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-family: arial;
+    color: rgb(126, 129, 100);
 }
 
 .post-box{
     padding: 1em 1em 0;
     border-radius: 14px 0 0 14px;
     @extend .cf;
-    @include transition(background  .2s);
     -webkit-transition: background  .2s, -webkit-transform .7s;
     -moz-transition: background  .2s, -moz-transform .7s;
     -o-transition: background  .2s, -o-transform .7s;
@@ -401,6 +398,54 @@ color: rgb(126, 129, 100);
 	max-width: 75px;
 	float: left;
   margin: 0;
+}
+
+.arrow-wrap{
+    position: relative;
+    float: left;
+    display: inline-block;
+    width: 50%;
+    a{
+        @extend .arrow-base;
+    }
+    &.arrow-next{
+        text-align: right;
+    }
+}
+// Single-article overrides & styles
+.single-article{
+    padding: 0 0.5em;
+    @include mq($bpmin){
+        padding: 1.4em 0 0 3em;
+        width: 95%;
+        max-width: 650px;
+    }
+    // h1 Title
+    .post-title{
+        font-size: 2.6em;
+        margin: 0.5em 0 1em 0;
+    }
+    p{
+        font-family: Arial;
+        line-height: 1.6em;
+        color: rgb(60, 86, 93);
+        font-size: 1.2em;
+        @include mq($bpmin){
+            font-family: 'Merriweather Sans', Arial;
+            line-height: 1.8em;
+        }
+    }
+    .arrow-up{ text-align: right; }
+    // the tag ul of the single article
+    .tags-list{
+        display: inline-block;
+        padding-left: 0rem;
+        li{
+            list-style: none;
+            margin: 0 0rem 0 0.2rem;
+            display: inline-block;
+        }
+    }
 }
 
 // CUBE CODE 

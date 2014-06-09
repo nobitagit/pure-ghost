@@ -4,7 +4,15 @@
         {{#post}}
 
         {{! Everything below outputs content of the the post which has been published }}
-        <span class="post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time> {{#if tags}}on {{tags separator=" | "}}{{/if}}</span>
+        <div class="post-date"><time datetime="{{date format="MMM-YYYY"}}">{{date format='MMM YYYY'}}</time>
+            {{#if tags}} | filed under:
+                <ul class="tags-list">
+                {{#foreach tags}} 
+                    <li class="post-category post-category-{{name}}">{{name}}</li>
+                {{/foreach}}
+                </ul>
+            {{/if}}
+        </div>
 
         <h1 class="post-title">{{{title}}}</h1>
 
@@ -12,12 +20,20 @@
             {{content}}
         </section>
 
-        <footer class="post-footer">
-            <div href="" class="single-arrow">
-                <a href="{{@blog.url}}" id="arrow" class="fontawesome-arrow-left single-arrow"></a>
+        <footer class="footer post-footer">
+            <div href="" class="arrow-wrap arrow-back">
+                <a href="{{@blog.url}}" id="arrow">
+                    <span class="fontawesome-arrow-left single-arrow"></span>
+                    <span class="pagination-txt">Back</span>
+                </a>
+            </div>
+            <div href="" class="arrow-wrap arrow-up">
+                <a href="#single-article">
+                    <span class="pagination-txt">Up</span>
+                    <span class="fontawesome-arrow-up single-arrow"></span>
+                </a>
             </div>
         </footer>
-
         {{/post}}
 
     </article>

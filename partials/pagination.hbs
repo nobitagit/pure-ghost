@@ -1,8 +1,20 @@
 <nav class="pagination" role="pagination">
+   <div href="" class="arrow-wrap arrow-back">
     {{#if prev}}
-        <a class="newer-posts" href="{{pageUrl prev}}">&larr; Newer Posts</a>
+    	<a href="{{pageUrl prev}}">
+	      <span class="fontawesome-arrow-left single-arrow"></span> 
+    		<span class="pagination-txt"> Newer</span> 
+    	</a>
     {{/if}}
+    		&nbsp; 
+   </div>
+   <div href="" class="arrow-wrap arrow-next">
+      	&nbsp;
     {{#if next}}
-        <a class="older-posts" href="{{pageUrl next}}">Older Posts &rarr;</a>
+      <a href="{{pageUrl next}}">
+    		<span class="pagination-txt">Older </span>
+	       <span class="fontawesome-arrow-right single-arrow"></span>
+	   </a>
     {{/if}}
+   </div>
 </nav>

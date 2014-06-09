@@ -86,8 +86,10 @@ textarea {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.cf:before, .post-box:before, .post-header:before, .post-thumb-pure:before,
+.cf:before, .pagination:before, .footer:before, .post-box:before, .post-header:before, .post-thumb-pure:before,
 .cf:after,
+.pagination:after,
+.footer:after,
 .post-box:after,
 .post-header:after,
 .post-thumb-pure:after {
@@ -96,7 +98,7 @@ textarea {
   display: table;
   /* 2 */ }
 
-.cf:after, .post-box:after, .post-header:after, .post-thumb-pure:after {
+.cf:after, .pagination:after, .footer:after, .post-box:after, .post-header:after, .post-thumb-pure:after {
   clear: both; }
 
 .animated {
@@ -198,6 +200,11 @@ a, a:link, a:hover, a:visited, a:active {
   h2,
   h3 {
     page-break-after: avoid; } }
+.no-flick, .topics {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden; }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -235,7 +242,7 @@ html {
 body {
   margin: 0; }
 
-.arrow-base, .single-article .single-arrow, .arrow-read {
+.arrow-base, .arrow-read, .arrow-wrap a {
   font-size: 40px;
   color: #dadabc;
   -webkit-transition: all 0.2s;
@@ -282,7 +289,7 @@ body {
   -o-transform: translateX(100%);
   transform: translateX(100%); }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: Montserrat;
   margin: 0;
   color: #065770; }
@@ -338,25 +345,6 @@ h1 {
   color: #8e8ed6;
   text-decoration: none; }
 
-.single-article {
-  padding: 0 0.5em; }
-  @media only screen and (min-width: 766px) {
-    .single-article {
-      padding: 1.4em 3em 0;
-      width: 95%;
-      max-width: 650px; } }
-  .single-article p {
-    font-family: Arial;
-    line-height: 1.6em;
-    color: #3c565d;
-    font-size: 1.2em; }
-    @media only screen and (min-width: 766px) {
-      .single-article p {
-        font-family: 'Merriweather Sans', Arial;
-        line-height: 1.8em; } }
-  .single-article .single-arrow {
-    position: relative; }
-
 .content-subhead {
   text-transform: uppercase;
   color: #aaa;
@@ -382,9 +370,6 @@ h1 {
   margin: 0.2em 0;
   font-family: 'Montserrat', sans-serif; }
 
-h1.post-title {
-  font-size: 2.6em; }
-
 /*.post-avatar {
     border-radius: 50px;
     float: right;
@@ -395,16 +380,10 @@ h1.post-title {
   color: #444;
   line-height: 1.8em; }
 
-.post-meta {
-  color: #999;
-  font-size: 90%;
-  margin: 0;
-  padding: 0 0 1.94em; }
-
-.post-category {
+.post-category, .older-posts, .newer-posts {
   margin: 0 0.1em 0.3em;
   padding: 0.4em 1em;
-  font-size: 60%;
+  font-size: 0.55rem;
   font-weight: bold;
   background: #d2ad4f;
   border: 1px solid #065770;
@@ -432,6 +411,10 @@ h1.post-title {
 .post-category-html {
   background: #4fb3bc; }
 
+.older-posts, .newer-posts {
+  background: none;
+  color: #065770; }
+
 .post-images {
   margin: 1em 0; }
 
@@ -441,17 +424,42 @@ h1.post-title {
   color: #fff;
   text-shadow: 0 1px 1px #333; }
 
+@media only screen and (min-width: 766px) {
+  .pagination {
+    padding: 1.4em 3em 0; } }
+.pagination a {
+  display: block; }
+
+.pagination-txt {
+  display: none; }
+  @media only screen and (min-width: 766px) {
+    .pagination-txt {
+      font-family: Montserrat;
+      display: inline-block; } }
+
+.arrow-wrap {
+  -webkit-transition: background  .2s, -webkit-transform .7s;
+  -moz-transition: background  .2s, -moz-transform .7s;
+  -o-transition: background  .2s, -o-transform .7s;
+  transition: background  .2s, transform .7s; }
+  .arrow-wrap:hover .pagination-txt, .arrow-wrap:hover .single-arrow {
+    color: #cecea5; }
+
+.pagination .arrow-wrap:nth-child(1):hover {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  transform: translateX(10px); }
+.pagination .arrow-wrap:nth-child(2):hover {
+  -webkit-transform: translateX(-10px);
+  -moz-transform: translateX(-10px);
+  -ms-transform: translateX(-10px);
+  -o-transform: translateX(-10px);
+  transform: translateX(-10px); }
+
 .footer {
-  text-align: center;
-  padding: 1em 0; }
-
-.footer a {
-  color: #ccc;
-  font-size: 80%; }
-
-.footer .pure-menu a:hover,
-.footer .pure-menu a:focus {
-  background: none; }
+  margin: 2em 0; }
 
 @media (max-width: 767px) {
   .sidebar {
@@ -488,7 +496,7 @@ h1.post-title {
   top: 0;
   content: ""; }
 
-.post-date-pure {
+.post-date {
   margin: 0;
   text-transform: uppercase;
   font-size: 0.7em;
@@ -498,10 +506,6 @@ h1.post-title {
 .post-box {
   padding: 1em 1em 0;
   border-radius: 14px 0 0 14px;
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  transition: background 0.2s;
   -webkit-transition: background  .2s, -webkit-transform .7s;
   -moz-transition: background  .2s, -moz-transform .7s;
   -o-transition: background  .2s, -o-transform .7s;
@@ -552,6 +556,43 @@ h1.post-title {
   max-width: 75px;
   float: left;
   margin: 0; }
+
+.arrow-wrap {
+  position: relative;
+  float: left;
+  display: inline-block;
+  width: 50%; }
+  .arrow-wrap.arrow-next {
+    text-align: right; }
+
+.single-article {
+  padding: 0 0.5em; }
+  @media only screen and (min-width: 766px) {
+    .single-article {
+      padding: 1.4em 0 0 3em;
+      width: 95%;
+      max-width: 650px; } }
+  .single-article .post-title {
+    font-size: 2.6em;
+    margin: 0.5em 0 1em 0; }
+  .single-article p {
+    font-family: Arial;
+    line-height: 1.6em;
+    color: #3c565d;
+    font-size: 1.2em; }
+    @media only screen and (min-width: 766px) {
+      .single-article p {
+        font-family: 'Merriweather Sans', Arial;
+        line-height: 1.8em; } }
+  .single-article .arrow-up {
+    text-align: right; }
+  .single-article .tags-list {
+    display: inline-block;
+    padding-left: 0rem; }
+    .single-article .tags-list li {
+      list-style: none;
+      margin: 0 0rem 0 0.2rem;
+      display: inline-block; }
 
 .cubewrap {
   width: 60px;
