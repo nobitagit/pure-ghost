@@ -38,7 +38,7 @@
                     </div>
                 </a>
 
-                <h2 class="brand-tagline">Let's talk about</h2>
+                <h2 class="brand-tagline">{{@blog.description}}</h2>
                 <ul class="topics">
                     <li>
                      <a class="post-category post-category-javascript" href="#">javascript</a>                   
@@ -63,9 +63,8 @@
         </div>
         <main id="main" class="pure-u-1 meat-and-potatoes" role="main">
             <div id="stage" class="content">
-
-	{{!mind the triple curly braces to escape html inside the body}}
-	{{{body}}}
+            	{{!mind the triple curly braces to escape html inside the body}}
+            	{{{body}}}
             </div>
         </main>
 	</div>

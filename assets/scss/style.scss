@@ -7,7 +7,6 @@
 
 
 // VARS
-$nocciuola: rgb(231, 231, 211);
 $main: rgb(6, 87, 112);
 $soft: #00aca6;
 $bkg : rgb(231, 231, 211); // i.e. #E7E7D3
@@ -51,6 +50,10 @@ html{
     &.color4 { border-top-color: $color-compass; }
     &.color5 { border-top-color: $color-css; }
     &.color6 { border-top-color: $color-design; }
+}
+
+body{
+    margin: 0;
 }
 
 .arrow-base{
@@ -163,7 +166,7 @@ h1{
 .single-article{
     padding: 0 0.5em;
     @include mq($bpmin){
-        padding: 0;
+        padding: 1.4em 3em 0;
         width: 95%;
         max-width: 650px;
     }
@@ -203,10 +206,14 @@ h1{
     padding-bottom: 2em;
 }
 .post-title {
-    font-size: 1.4em;
+    font-size: 2em;
     color: rgb(6, 87, 112);
     margin: 0.2em 0;
     font-family: 'Montserrat', sans-serif;
+}
+// If on single page
+h1.post-title{
+    font-size: 2.6em;
 }
 /*.post-avatar {
     border-radius: 50px;
@@ -221,10 +228,8 @@ h1{
 .post-meta {
     color: #999;
     font-size: 90%;
-
-		margin: 0;
-		padding: 0 0 1.94em;
-		border-bottom: 1px solid rgb(212, 212, 191);    
+    margin: 0;
+	padding: 0 0 1.94em;
 }
 
 .post-category {
@@ -322,20 +327,17 @@ h1{
 }
 
 .post-description:after{
-background: rgb(231,231,211);
-background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
-background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
-background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
-position: absolute;
-width: 100%;
-height: 120px;
-top: 0;
-content: "";
+    background: rgb(231,231,211);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(231,231,211,1) 100%);
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    top: 0;
+    content: "";
 }
 
-body{
-    margin: 0;
-}
 .post-date-pure{
     margin: 0;
 text-transform: uppercase;

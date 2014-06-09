@@ -1,3 +1,4 @@
 # Pure Ghost
+==========
 
 A theme for Ghost.

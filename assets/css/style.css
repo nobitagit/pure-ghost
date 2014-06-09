@@ -232,6 +232,9 @@ html {
   html.color6 {
     border-top-color: #5aba59; }
 
+body {
+  margin: 0; }
+
 .arrow-base, .single-article .single-arrow, .arrow-read {
   font-size: 40px;
   color: #dadabc;
@@ -339,7 +342,7 @@ h1 {
   padding: 0 0.5em; }
   @media only screen and (min-width: 766px) {
     .single-article {
-      padding: 0;
+      padding: 1.4em 3em 0;
       width: 95%;
       max-width: 650px; } }
   .single-article p {
@@ -374,10 +377,13 @@ h1 {
   padding-bottom: 2em; }
 
 .post-title {
-  font-size: 1.4em;
+  font-size: 2em;
   color: #065770;
   margin: 0.2em 0;
   font-family: 'Montserrat', sans-serif; }
+
+h1.post-title {
+  font-size: 2.6em; }
 
 /*.post-avatar {
     border-radius: 50px;
@@ -393,8 +399,7 @@ h1 {
   color: #999;
   font-size: 90%;
   margin: 0;
-  padding: 0 0 1.94em;
-  border-bottom: 1px solid #d4d4bf; }
+  padding: 0 0 1.94em; }
 
 .post-category {
   margin: 0 0.1em 0.3em;
@@ -482,9 +487,6 @@ h1 {
   height: 120px;
   top: 0;
   content: ""; }
-
-body {
-  margin: 0; }
 
 .post-date-pure {
   margin: 0;
