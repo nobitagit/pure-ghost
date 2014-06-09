@@ -205,6 +205,20 @@ a, a:link, a:hover, a:visited, a:active {
   -webkit-perspective: 1000;
   -webkit-backface-visibility: hidden; }
 
+/*
+$main: #5AC8E9;
+$soft: #00aca6;
+$bkg: #555;
+
+$brand: #3EABCC;
+
+$color-js: #df2d4f;
+$color-compass: #4d85d1;
+$color-css: #8156a7;
+$color-design: #5aba59;
+$color-html: #4fb3bc;
+$color-other: #d2ad4f;
+*/
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -389,7 +403,6 @@ h1, h2, h3, h4 {
   background: #d2ad4f;
   border: 1px solid #065770;
   border-radius: 4px;
-  color: #065770;
   text-transform: uppercase;
   font-family: Arial;
   color: #e7e7d3; }
