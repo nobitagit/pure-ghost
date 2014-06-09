@@ -318,7 +318,8 @@ h1, h2, h3, h4 {
   font-family: 'Merriweather Sans', sans-serif; }
 
 .topics {
-  padding-left: 0; }
+  padding-left: 0;
+  padding-bottom: 10px; }
   .topics li {
     margin-bottom: 0.3em;
     list-style: none; }
